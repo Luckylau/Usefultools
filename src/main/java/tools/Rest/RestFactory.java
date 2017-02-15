@@ -4,7 +4,6 @@ import java.nio.charset.Charset;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,8 +22,6 @@ import org.springframework.web.client.RestTemplate;
 
 import tools.Handler.ApiErrorHandler;
 import tools.Handler.NeutronErrorHandler;
-
-
 
 /**
  * 
