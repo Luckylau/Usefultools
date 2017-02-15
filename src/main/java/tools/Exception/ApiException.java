@@ -2,7 +2,11 @@ package tools.Exception;
 
 
 import com.fasterxml.jackson.databind.JsonMappingException;
-
+/**
+ * 
+ * @author Jasonlau
+ *
+ */
 @SuppressWarnings("deprecation")
 public class ApiException extends JsonMappingException {
 
