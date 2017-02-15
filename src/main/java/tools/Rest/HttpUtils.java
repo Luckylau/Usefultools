@@ -2,6 +2,7 @@ package tools.Rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
@@ -16,6 +17,9 @@ import javax.net.ssl.X509TrustManager;
 
 import org.apache.http.ssl.SSLContexts;
 import org.apache.http.ssl.TrustStrategy;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
@@ -40,7 +44,21 @@ public class HttpUtils {
     private static final int MaxPerRoute = 100;
     
     public static Boolean testConnect(String url){
-    	return null;
+    	Boolean isConnect=false;
+    	HttpClient httpClient=null;
+    	try {
+			httpClient=HttpUtils.acceptUntrustedCertsHttpClient();
+			HttpGet httpGet=new HttpGet(url);
+			HttpResponse resp=httpClient.execute(httpGet);
+			int statusCode=resp.getStatusLine().getStatusCode();
+			if (HttpStatus.OK.value()==statusCode){
+				isConnect=true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("无法建立链接 "+url);
+		}
+    	return isConnect;
     }
     
     
