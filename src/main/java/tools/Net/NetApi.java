@@ -16,7 +16,7 @@ import tools.Rest.RestFactory;
 public class NetApi {
 	
 	private static final Logger logger = LoggerFactory.getLogger(NetApi.class);
-	private static RestTemplate restTemplate=RestFactory.getTemplate();
+	private static RestTemplate restTemplate=RestFactory.getNeutronTemplate();
 	private static String REST_POINT="http://10.0.38.113:9696/v2.0";
 	
 	/**
