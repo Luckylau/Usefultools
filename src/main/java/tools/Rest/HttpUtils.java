@@ -53,6 +53,7 @@ public class HttpUtils {
 			int statusCode=resp.getStatusLine().getStatusCode();
 			if (HttpStatus.OK.value()==statusCode){
 				isConnect=true;
+				logger.info("建立连接成功");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

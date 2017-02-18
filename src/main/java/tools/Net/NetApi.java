@@ -21,7 +21,7 @@ public class NetApi {
 	
 	private static final Logger logger = LoggerFactory.getLogger(NetApi.class);
 	private static RestTemplate restTemplate=RestFactory.getNeutronTemplate();
-	private static String REST_POINT="http://10.0.38.113:9696/v2.0";
+	public static String REST_POINT="http://10.0.38.113:9696/v2.0";
 	
 	/**
 	 * 获取和设置rest服务地址
